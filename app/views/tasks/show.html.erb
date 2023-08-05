@@ -1,0 +1,25 @@
+<h1><%= @task.title %></h1>
+
+<p><%= @task.details %></p>
+
+<%# <%= form_with model: @task do |f| %>
+  <%# <%= f.check_box :completed %>
+  <%# <% if task(params[:completed]) %>
+    <%# <%= f.label :completed, "This task is completed" %>
+  <%# <% else %>
+    <%# <%= f.label :completed, "This task is not completed yet" %>
+  <%# <% end %>
+<%# <% end %>
+
+<%= form_with model: @task do |f| %>
+  <%= f.label :completed, class: 'checkbox-label' do %>
+    <%= f.check_box :completed %>
+    <% if @task.completed %>
+      This task is completed
+    <% else %>
+      This task is not completed yet
+    <% end %>
+  <% end %>
+<% end %>
+
+<p><%= link_to 'Back to list', tasks_path %></p>
