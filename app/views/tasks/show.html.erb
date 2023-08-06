@@ -1,4 +1,4 @@
-<h1><%= @task.title %></h1>
+<h1 class="p-4"><%= @task.title %></h1>
 
 <p><%= @task.details %></p>
 
@@ -22,5 +22,5 @@
   <% end %>
 <% end %>
 
-<p><%= link_to 'Back to list', tasks_path %></p>
-<%= button_to link_to "Edit this task", edit_path %>
+<p><%= link_to 'Back to list', tasks_path, class: "btn btn-outline-primary text-decoration-none" %></p>
+<%= link_to "Edit this task", edit_path, class: "btn btn-outline-success text-decoration-none" %>

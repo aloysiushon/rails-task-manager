@@ -1,4 +1,4 @@
-<h1>Edit Task</h1>
+<h1 class="p-4">Edit Task</h1>
 
 <%= form_with model: @task do |f| %>
   <%= f.label :title %>
@@ -10,4 +10,4 @@
   <%= f.label :completed, "Completed" %>
 <% end %>
 
-<p><%= link_to 'Back to list', tasks_path %></p>
+<p><%= link_to 'Back to list', tasks_path, class: "btn btn-outline-primary text-decoration-none" %></p>

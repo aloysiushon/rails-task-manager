@@ -1,9 +1,18 @@
-<h1>My Tasks</h1>
+<h1 class="p-4">My Tasks</h1>
+<div class="p-4">
+  <ul class="list-unstyled list-group list-group-flush">
+    <% @tasks.each do |task| %>
+      <li class="d-flex list-group-item">
+          <p class="ml-5"><%= link_to task.title, task_path(task),  class: "text-decoration-none fs-2" %></p>
+          <p><%= button_to task_path(task),
+                method: :delete,
+                data: { turbo_method: :delete, turbo_confirm: "Delete #{task.title}?" },
+                class: "btn btn-danger mx-5 fw-lighter fs-6" do %>
+                <i class="bi bi-trash "></i>Delete
+                <% end %></p>
+      </li>
+    <% end %>
+  </ul>
 
-<ul>
-  <% @tasks.each do |task| %>
-    <li><%= link_to task.title, task_path(task) %></li>
-  <% end %>
-</ul>
-
-<%= link_to 'Add a new task', tasks_new_path %>
+  <%= link_to 'Add a new task', tasks_new_path, class: "btn btn-outline-primary text-decoration-none" %>
+</div>
